@@ -13,5 +13,7 @@ jobs:
     uses: bsm/misc/.github/workflows/build-push-ghcr.yml@main
     with:
       image: ghcr.io/${{ github.repository }}/nginx
+      context: nginx
+      file: nginx/Dockerfile
       tags: |
         type=raw,value=1-alpine-slim,enable={{is_default_branch}}
