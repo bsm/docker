@@ -4,14 +4,18 @@ on:
   push:
     branches: ["main"]
     tags: ["console/v*"]
-    paths: ["console/**"]
   pull_request:
     branches: [main]
+    paths: ["console/**"]
+  schedule:
+    - cron: "33 2 * * SUN"
 
 jobs:
   build:
     uses: bsm/misc/.github/workflows/build-push-ghcr.yml@main
     with:
       image: ghcr.io/${{ github.repository }}/console
+      context: console
+      file: console/Dockerfile
       tags: |
         type=raw,value=latest,enable={{is_default_branch}}
