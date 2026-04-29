@@ -7,6 +7,8 @@ on:
     paths: ["nginx/**"]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: "33 2 * * SUN"
 
 jobs:
   build:
