@@ -1,0 +1,17 @@
+name: Nginx
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["nginx/v*"]
+    paths: ["nginx/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    uses: bsm/misc/.github/workflows/build-push-ghcr.yml@main
+    with:
+      image: ghcr.io/${{ github.repository }}/nginx
+      tags: |
+        type=raw,value=1-alpine-slim,enable={{is_default_branch}}

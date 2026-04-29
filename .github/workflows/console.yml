@@ -1,0 +1,17 @@
+name: Console
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["console/v*"]
+    paths: ["console/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    uses: bsm/misc/.github/workflows/build-push-ghcr.yml@main
+    with:
+      image: ghcr.io/${{ github.repository }}/console
+      tags: |
+        type=raw,value=latest,enable={{is_default_branch}}
