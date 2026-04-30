@@ -12,7 +12,7 @@ metadata:
 spec:
   containers:
     - name: console
-      image: ghcr.io/bsm/console/console:latest
+      image: ghcr.io/bsm/docker/console:latest
       imagePullPolicy: Always
 ```
 
@@ -40,7 +40,7 @@ metadata:
 spec:
   containers:
     - name: console
-      image: ghcr.io/bsm/console/console:latest
+      image: ghcr.io/bsm/docker/console:latest
       imagePullPolicy: Always
       volumeMounts:
         - mountPath: "/etc/console/init/boot.d"
