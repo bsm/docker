@@ -1,0 +1,20 @@
+name: Alpine
+on:
+  push:
+    branches: ["main"]
+    tags: ["alpine/v*"]
+  pull_request:
+    branches: [main]
+    paths: ["alpine/**"]
+  schedule:
+    - cron: "33 4 * * SUN"
+
+jobs:
+  build:
+    uses: bsm/misc/.github/workflows/build-push-ghcr.yml@main
+    with:
+      image: ghcr.io/${{ github.repository }}/alpine
+      context: alpine
+      file: alpine/Dockerfile
+      tags: |
+        type=raw,value=3,enable={{is_default_branch}}

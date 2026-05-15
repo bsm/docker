@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths: ["console/**"]
   schedule:
-    - cron: "33 2 * * SUN"
+    - cron: "33 3 * * SUN"
 
 jobs:
   build:
